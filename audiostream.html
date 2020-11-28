@@ -1,0 +1,136 @@
+<html>
+<head>
+    <title>Launcher - Audio Stream</title>
+    <link rel="stylesheet" type="text/css" href="app-core.css" media="screen" />
+    <script src="app-core.js" type="text/javascript"></script>
+    
+
+    </head>
+<body class="audio">
+
+<div class="launcher-options">
+   <p>Choose a URL to stream</p>
+   
+   <form id="audiostream" onsubmit="customaud()">
+    <fieldset>
+        <label for="podsearch">Enter Podcast Feed URL</label>        
+        <input type="text" name="podsearch" id="podsearch">
+
+        <label for="audiosearch">Search Station or enter URL</label>        
+        <input type="text" name="audiosearch" id="audiosearch">           
+        <input type="submit" value="Stream URL">
+    </fieldset>
+   </form>
+
+
+   <h2 id="mySearch"></h2>
+   <ul id="myData"></ul>
+</div>
+
+
+<script>
+    
+    function toTitleCase(str) {
+      return str.toLowerCase().split(' ').map(function (word) {
+        return (word.charAt(0).toUpperCase() + word.slice(1));
+      }).join(' ');
+    }
+
+    let termContainer = document.getElementById("mySearch");    
+    let input = document.getElementById('audiosearch');
+    let timeout = null;
+        
+
+
+    input.addEventListener('keyup', function (e) {
+        clearTimeout(timeout);
+
+        timeout = setTimeout(function () {
+        
+            var stationname = encodeURI(input.value);     
+            var mainContainer = document.getElementById("myData");
+                        
+            mainContainer.innerHTML = "";        
+            termContainer.innerText = input.value.toUpperCase();             
+
+            fetch('https://de1.api.radio-browser.info/json/stations/byname/'+ stationname)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    appendData(data);
+                })
+                .catch(function (err) {
+                    console.log('error: ' + err);
+                });
+        }, 1000);
+    });
+
+
+   
+        
+
+    function appendData(data) {
+        var mainContainer = document.getElementById("myData");
+        
+        for (var i = 0; i < data.length; i++) {
+            var item = document.createElement("li");
+            item.innerHTML = '<a href="javascript:launchaud(\'' + data[i].url_resolved + '\');" title="' + data[i].codec + ' - ' + data[i].bitrate + ' - ' + data[i].tags + '">' + data[i].name + '</a>';
+            mainContainer.appendChild(item);
+            
+        }
+    }
+
+
+
+
+
+    let podsearch = document.getElementById('podsearch');
+    let timeoutpod = null;
+
+    podsearch.addEventListener('keyup', function (e) {
+        clearTimeout(timeoutpod);
+
+        timeoutpod = setTimeout(function () {
+        
+            var podurl = podsearch.value;     
+            var mainContainer = document.getElementById("myData");
+                        
+            mainContainer.innerHTML = "";
+            termContainer.innerText = "";    
+            
+
+            if (podurl.substring(0, 4) != 'http'){          
+                // IS NOT URL
+                
+            } else {
+                // IS URL                
+                var cproxy = "https://cors-anywhere.herokuapp.com/";
+                fetch(cproxy + podurl)
+                  .then(response => response.text())
+                  .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+                  .then(data => {
+                    //console.log(data);
+                    const items = data.querySelectorAll("item");
+                    let html = "";
+                    items.forEach(el => {
+                      html += '<li><a href="javascript:launchaud(\'' + el.querySelector("enclosure").getAttribute("url") + '\');" title="' + el.querySelector("author").innerHTML + ' - ' + el.querySelector("pubDate").innerHTML + '">' + el.querySelector("title").innerHTML +'</a></li>'; 
+                    });
+                    mainContainer.innerHTML = html;
+                    const channeltitle = data.querySelector("channel").querySelector("title").innerHTML;                
+
+                    termContainer.innerText = channeltitle.toUpperCase();
+                    
+                  });
+            }
+        }, 2500);
+    });
+
+
+
+
+    </script>
+
+</body>
+</head>
+</html>

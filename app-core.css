@@ -1,0 +1,220 @@
+::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FFFFFF;
+    -webkit-border-radius: 1ex;
+    -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
+}
+
+::-webkit-scrollbar-corner {
+    background: #000;
+}
+
+
+
+body.main,
+body.audio {
+    background  : #000000;
+    color       : #ffffff;
+    padding     : 0px;
+    margin      : 0px;
+}
+
+.launcher-splash {
+    z-index     : 200;
+    height      : 0vh;
+    width       : 100vw;
+    background  : #000;
+    color       : #fff;
+
+    position    : absolute;
+    top         : 0px;
+    left        : 0px;
+
+    opacity     : 0;
+    transition: all 2s ease-in-out;
+    overflow    : hidden;      
+}
+
+.launcher-canvas iframe {
+    margin      : 0px;
+    padding     : 0px;
+    width       : 100%;
+    height      : 93%;
+    border      : 0px solid transparent;
+    z-index     : 80;
+}
+
+ 
+
+.launcher-controls {
+    text-align  : center;
+    height      : 7%;
+    width       : 100%;
+    border-top  : 1px solid #ffffff;
+    background  : #000000;
+    color       : #ffffff;
+    margin      : 0px;
+    position    : fixed;
+    bottom      : 0px;
+    z-index     : 90;
+}
+
+.launcher-controls ul {
+    list-style : none;
+}
+
+.launcher-controls ul li {
+    display     : inline-block;
+}
+
+.launcher-controls ul li a:before {
+    content     : " | ";        
+}
+
+.launcher-controls ul li:first-child a:before {
+    content     : "";        
+}
+
+.launcher-controls a,
+.launcher-controls a:hover {
+    color       : #ffffff;
+    text-decoration : none;
+}
+
+
+.launcher-pip {
+    background  : #000000;
+    border      : 1px solid #fff;
+    width   : 480px;
+    height  : 365px;
+    margin  : 0px;
+    
+
+    position    : absolute;
+    bottom      : 30px;
+    right       : 30px;
+    z-index     : 100;
+    display     : none;
+    overflow    : hidden;     
+}
+.launcher-pip .pip-controls {
+    background  : #ffffff;
+    color       : #000000;
+    padding     : 15px;        
+}
+.launcher-pip iframe {
+    margin      : 0px;
+    padding     : 0px;
+    width       : 100%;
+    height      : 320px;
+    border      : 0px solid transparent;       
+}
+
+
+
+.launcher-audio {
+    background  : #000000;
+    color       : #ffffff;
+    border      : 1px solid #fff;
+    border-radius : 25px;
+    width       : 480px;
+    height      : 54px;
+    margin      : 0px;
+
+    position    : absolute;
+    bottom      : 37px;
+    left        : 30px;
+    z-index     : 100;
+    display     : none;
+    overflow    : hidden;
+
+    transition  : width 2s ease-in-out;
+     
+}
+
+.launcher-audio a {
+    text-decoration : none;
+    color           : #ffffff;
+}
+
+.launcher-audio audio {
+    float           : left;
+    width           : 250px;
+    transition      : all 2s ease-in-out;
+}
+
+.launcher-audio .audio-controls {
+    margin     : 15px;
+    display : inline-block;
+    float   : right;
+}
+
+/*#audioskip {
+    display : none;
+}*/
+
+.audioplayer::-webkit-media-controls-panel {
+    background  : #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body.canvas {
+    background  : #000000;
+    color       : #ffffff;
+    padding     : 0px;
+    margin      : 0px;
+}
+
+body.canvas .wrapper {
+    padding     : 30px;
+    margin      : 0 auto;
+    text-align  : center;
+}
+
+body.canvas .apptester {
+    display : none;        
+}
+
+body.canvas a, body.canvas a:hover {
+    color       : #ffffff;
+    text-decoration : none;
+}
+
+body.canvas .wrapper ul {
+    list-style : none;
+}
+
+body.canvas .wrapper ul li {
+    display         : inline-block;
+    text-align: center;
+}
+
+body.canvas .wrapper ul a {
+    display         : block;
+    height          : 6rem;
+    width           : 6rem;
+    margin          : 2rem;
+    border          : 1px solid #fff;
+}
