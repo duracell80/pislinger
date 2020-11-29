@@ -2,41 +2,45 @@
 <head>
     <title>Launcher</title>
     <link rel="stylesheet" type="text/css" href="app-core.css" media="screen" />
-    <script src="app-core.js" type="text/javascript"></script>   
+    <script src="app-core.js" type="text/javascript"></script>
     </head>
-<body class="canvas">
+<body class="canvas" onload="appsload();">
 
   
-<div class="wrapper">
+<div class="wrapper" id="wrapper">
     <h2>Launcher</h2>
 
     <ul>
         <li><a href="http://localhost/">Moode Classic</a></li>
-        <li><a href="javascript:launchapp('http://www.example.com')">Example</a></li>        
-        <li><a href="javascript:launchsidebar('https://www.bbc.com/sport')">BBC Sport - Side</a></li>
-        <li><a href="javascript:launchpip('https://www.youtube.com/embed/21X5lGlDOfg')">NASA Live</a></li>
-        <li><a href="javascript:launchapp('https://www.accuweather.com/en/videos')">Accuweather Videos</a></li>
-        <li><a href="javascript:launchapp('https://open.spotify.com/browse/featured')">Spotify</a></li>
+        <li><a href="javascript:launchapp('http://www.example.com');">Example</a></li>        
+        <li><a href="javascript:launchsidebar('https://www.bbc.com/sport');">BBC Sport - Side</a></li>
+        <li><a href="javascript:launchpip('https://www.youtube.com/embed/21X5lGlDOfg');">NASA Live</a></li>
+        <li><a href="javascript:launchapp('https://www.accuweather.com/en/videos');">Accuweather Videos</a></li>
+        <li><a href="javascript:launchapp('https://open.spotify.com/browse/featured');">Spotify</a></li>
                 
-        <li><a href="javascript:launchaud('')">Radio and Podcasts</a></li>
-        <li><a href="javascript:launchaud('http://ice4.somafm.com/lush-128-aac')">SomaFM Lush</a></li>
-        <li><a href="javascript:launchaud('http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p')">BBC Radio 4</a></li>
-        <li><a href="javascript:launchpod('http://static.aboveandbeyond.nu/grouptherapy/podcast.xml')">Podcast: Above and Beyond GT</a></li>
+        <li><a href="javascript:launchaud('');">Radio and Podcasts</a></li>
+        <li><a href="javascript:launchaud('http://ice4.somafm.com/lush-128-aac');">SomaFM Lush</a></li>
+        <li><a href="javascript:launchaud('http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p');">BBC Radio 4</a></li>
+        <li><a href="javascript:launchpod('http://static.aboveandbeyond.nu/grouptherapy/podcast.xml');">Podcast: Above and Beyond GT</a></li>
         <li><a href="javascript:launchpod('https://feeds.megaphone.fm/sagittariustoday');">Podcast: Sagittarius Today</a></li>
-        <li><a href="javascript:launchapp('https://www.xumo.tv/')">Xumo</a></li>
-        <li><a href="javascript:launchapp('https://pluto.tv/live-tv/')">Pluto TV</a></li>
-        <li><a href="javascript:launchapp('https://watch.sling.com/browse/my-tv')">SlingTV</a></li>
-        <li><a href="javascript:launchapp('https://www.netflix.com')">Netflix</a></li>
-        <li><a href="javascript:launchapp('https://www.hulu.com/')">Hulu</a></li>
-        <li><a href="javascript:launchapp('https://www.peacocktv.com')">Peacock</a></li>
-        <li><a href="javascript:launchapp('https://www.youtube.com/embed/A6XUVjK9W4o')">YouTube</a></li>
-        <li><a href="javascript:launchapp('https://music.youtube.com/')">YouTube Music</a></li>
-        <li><a href="javascript:launchapp('https://tv.youtube.com/')">YouTube TV</a></li>
-        <li><a href="javascript:launchapp('https://plus.espn.com/')">ESPN+</a></li>
-        <li><a href="javascript:launchapp('https://www.britbox.com/')">Brit Box</a></li>
-        <li><a href="javascript:launchpip('https://www.youtube.com/embed/9Auq9mYxFEE')">Sky News Live</a></li>
-        <li><a href="javascript:launchapp('https://www.skynews.com/')">Sky News Site</a></li>
+        <li><a href="javascript:launchapp('https://www.xumo.tv/');">Xumo</a></li>
+        <li><a href="javascript:launchapp('https://pluto.tv/live-tv/');">Pluto TV</a></li>
+        <li><a href="javascript:launchapp('https://watch.sling.com/browse/my-tv');">SlingTV</a></li>
+        <li><a href="javascript:launchapp('https://www.netflix.com');">Netflix</a></li>
+        <li><a href="javascript:launchapp('https://www.hulu.com/');">Hulu</a></li>
+        <li><a href="javascript:launchapp('https://www.peacocktv.com');">Peacock</a></li>
+        <li><a href="javascript:launchapp('https://www.youtube.com/embed/A6XUVjK9W4o');">YouTube</a></li>
+        <li><a href="javascript:launchapp('https://music.youtube.com/');">YouTube Music</a></li>
+        <li><a href="javascript:launchapp('https://tv.youtube.com/');">YouTube TV</a></li>
+        <li><a href="javascript:launchapp('https://plus.espn.com/');">ESPN+</a></li>
+        <li><a href="javascript:launchapp('https://www.britbox.com/');">Brit Box</a></li>
+        <li><a href="javascript:launchpip('https://www.youtube.com/embed/9Auq9mYxFEE');">Sky News Live</a></li>
+        <li><a href="javascript:launchapp('https://www.skynews.com/');">Sky News Site</a></li>
+        <li><a href="javascript:launchpage('./credits.html');">Credits and Thanks</a></li>
     </ul>
+
+    
+    
 </div>
 
 

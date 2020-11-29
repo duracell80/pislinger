@@ -12,14 +12,16 @@ function sleep(milliseconds) {
   } while (currentDate - date < milliseconds);
 }
 
-function loadhome() {
-    window.document.getElementById("appcanvas").src="./launcher.html";
-}
+
+
+
+
 
 
 function togglescreen(target) {
   var elem          = window.parent.document.getElementById(target);
   var statusbar     = window.parent.document.getElementById("status");
+  var screenstatus  = window.parent.document.getElementById("screenstatus");
 
   if (!document.fullscreenElement && !document.mozFullScreenElement &&
     !document.webkitFullscreenElement && !document.msFullscreenElement) {
@@ -34,6 +36,7 @@ function togglescreen(target) {
     }
 
     statusbar.style.display = "block";
+    screenstatus.textContent = "fullscreen_exit";
   } else {
     if (document.exitFullscreen) {
       document.exitFullscreen();
@@ -46,6 +49,7 @@ function togglescreen(target) {
     }
     
     statusbar.style.display = "none";
+    screenstatus.textContent = "fullscreen";
   }
 }
 
@@ -93,8 +97,8 @@ function launchapp(appurl) {
         iframe.id           = "apptester";
         iframe.className    = "apptester";
         
-        //splash.style.height     = "100vh";        
-        //splash.style.opacity    = "1";        
+        splash.style.height     = "100vh";        
+        splash.style.opacity    = "1";        
         document.body.appendChild(iframe);
            
         
@@ -130,11 +134,14 @@ function launchapp(appurl) {
             iframe.onload = iframeOnloadEvent;
         }
         
-        
-        
+           
     
 }
 
+
+function launchpage(pageurl) {
+    window.parent.document.getElementById("appcanvas").src=pageurl;
+}
 
 
 function launchsidebar(appurl) {
@@ -181,16 +188,28 @@ function customaud() {
 }
 
 function launchpod(podurl) {
-    var cproxy = "https://cors-anywhere.herokuapp.com/";
-    
-    fetch(cproxy + podurl)    
+    var cproxy  = "https://cors-anywhere.herokuapp.com/";
+    var corsurl = cproxy + podurl;
+    //var obj = {
+      //mode : 'no-cors'
+    //};
+
+    var obj = {
+      headers: {
+        'origin': 'http://localhost'
+      }
+    };
+
+
+    fetch(podurl, obj)    
       .then(response => response.text())
       .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
       .then(data => {
         const items = data.querySelectorAll("item");
-       
         launchaud(items[0].querySelector("enclosure").getAttribute("url"));
-      });
+      }).catch((error) => {
+        alert("Error: Failed to fetch podcast, CORS may need to be disabled.");
+    });
 }
 
 
@@ -418,7 +437,15 @@ function pipctrl(cmd) {
 
 
 
+function appsload() {
+    window.document.getElementById("wrapper").style.opacity = "1";
+}
 
+
+
+function loadhome() {
+    window.document.getElementById("appcanvas").src="./launcher.html";
+}
 
 
 

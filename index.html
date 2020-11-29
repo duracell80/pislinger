@@ -45,7 +45,24 @@
             z-index     : 85;
             background  : #000000;
         }
+
+        .videocanvas {
+            height      : 100vh;
+            width       : 100vw;
+            object-fit  : cover;
+    
+            position    : fixed;
+            top         : 0px;
+            left        : 0px;
+            z-index     : 25;
+
+            -webkit-filter: blur(7px);
+            -moz-filter: blur(7px);
+            -o-filter: blur(7px);
+            filter: blur(7px);
+        }
     </style>
+    
     </head>
 <body class="main" id="main">
 
@@ -53,7 +70,9 @@
     <small>Status Icons Here</small>
 </div>
 
-
+<div class="launcher-splash" id="splash">
+    <h1>Loading ...</h1>
+</div>
 
 <div class="launcher-canvas" id="canvas">
     <iframe src="./launcher.html" 
@@ -117,9 +136,10 @@
     
 <div class="launcher-controls" id="controls">
     <ul>
-        <li><a href="javascript:parent.appcanvas.location.reload();">Reload</a></li>
-        <li><a href="./launcher.html" target="appcanvas">Apps</a></li>
-        <li><a href="javascript:togglescreen('main');">Fullscreen</a></li>
+        <li><a href="javascript:parent.appcanvas.location.reload();"><i class="material-icons-outlined">cached</i></a></li>
+        <li><a href="javascript:launchpage('./launcher.html');" target="appcanvas"><i class="material-icons-outlined">apps</i></a></li>
+        <li><a href="javascript:togglescreen('main');"><i class="material-icons-outlined" id="screenstatus">fullscreen</i></a></li>
+        <li><a href="javascript:launchaud('');" target="appcanvas"><i class="material-icons-outlined">radio</i></a></li>
     </ul>
 </div>
 
@@ -127,12 +147,17 @@
 
 
 
-<div class="launcher-splash" id="splash">
-    <h1>Loading ...</h1>
-</div>
 
 
 
+
+
+
+
+
+<video class="videocanvas" id="videocanvas" autoplay loop muted>
+  <source src="videowallpaper.webm" type="video/webm">
+</video>
 
 </body>
 </head>
