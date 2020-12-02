@@ -1,3 +1,29 @@
+global_disp_vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+global_disp_vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
+
+function init() {
+    
+
+    var videocanvas     = document.getElementById("videocanvas");
+    var maincanvas      = document.getElementById("main");   
+    
+    // Check ability to play videowallpaper    
+    if (videocanvas.canPlayType("video/webm").length > 0) {
+        // Check display size, 
+        // Thin devices may not handle video wallpapers well        
+        if(global_disp_vw > 1000) {          
+            videocanvas.src                         = "videowallpaper.webm";        
+        }
+    } 
+}
+
+
+
+
+
+
+
 function toTitleCase(str) {
   return str.toLowerCase().split(' ').map(function (word) {
     return (word.charAt(0).toUpperCase() + word.slice(1));

@@ -64,7 +64,7 @@
     </style>
     
     </head>
-<body class="main" id="main">
+<body class="main" id="main" onload="init();">
 
 <div class="launcher-status" id="status">
     <small>Status Icons Here</small>
@@ -137,7 +137,7 @@
 <div class="launcher-controls" id="controls">
     <ul>
         <li><a href="javascript:parent.appcanvas.location.reload();"><i class="material-icons-outlined">cached</i></a></li>
-        <li><a href="javascript:launchpage('./launcher.html');" target="appcanvas"><i class="material-icons-outlined">apps</i></a></li>
+        <li><a href="./launcher.html" target="appcanvas"><i class="material-icons-outlined">apps</i></a></li>
         <li><a href="javascript:togglescreen('main');"><i class="material-icons-outlined" id="screenstatus">fullscreen</i></a></li>
         <li><a href="javascript:launchaud('');" target="appcanvas"><i class="material-icons-outlined">radio</i></a></li>
     </ul>
@@ -156,7 +156,7 @@
 
 
 <video class="videocanvas" id="videocanvas" autoplay loop muted>
-  <source src="videowallpaper.webm" type="video/webm">
+  <source src="" type="video/webm">
 </video>
 
 </body>

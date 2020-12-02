@@ -20,12 +20,24 @@
 
 body.main,
 body.audio {
-    background  : rgba(0, 0, 0, 0.5);
+    background-color    : #000000;    
     color       : #ffffff;
     padding     : 0px;
     margin      : 0px;
 
 }
+
+body {
+    background : #000000 url('wallpaper.png') no-repeat top left;
+    background-size : cover;
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    background-image : none;
+  }
+}
+
 
 .launcher-splash {
     z-index     : 200;
@@ -199,7 +211,7 @@ body.canvas {
 
 
 body.canvas .wrapper {
-    background  : transparent;
+    background-color  : rgba(0, 0, 0, 0.4);
     padding     : 30px;
     margin      : 0 auto;
     text-align  : center;
