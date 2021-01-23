@@ -13,7 +13,7 @@ function init() {
         // Check display size, 
         // Thin devices may not handle video wallpapers well        
         if(global_disp_vw > 1000) {          
-            videocanvas.src                         = "videowallpaper.webm";        
+            videocanvas.src                         = "/launcher/images/videowallpaper.webm";        
         }
     } 
 }
@@ -289,6 +289,12 @@ function audioctrl(cmd) {
             audiocontainer.style.width = "480px";
             audioui.textContent = "Min";            
             audioplayer.style.width = "250px";
+            
+            if(audioplayer.seekable.end(0) != "Infinity"){ 
+                audioskip.style.display = "inline-block";
+            } else {
+                audioskip.style.display = "none";
+            }
 
         };        
 
@@ -320,6 +326,18 @@ function audioctrl(cmd) {
         } else {
             alert('Playback: Stream not seekable');
             //audioskip.display = "none";
+        }
+    }
+
+    if (cmd == "back30"){             
+        if (audioplayer.paused) {
+            audioplayer.play();
+            audiostatus.textContent = "Pau";
+        }
+        var audiocurrent    = audioplayer.currentTime;
+        if (audiocurrent > 30 ) {        
+            var audioseek       = audiocurrent - 30;
+            audioplayer.currentTime = audioseek;
         }
     }
 

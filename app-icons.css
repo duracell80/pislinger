@@ -1,0 +1,18 @@
+.appicon {
+    background-repeat       : no-repeat;
+    background-position     : center 0.5rem;
+    background-size         : 50px 50px;
+}
+
+.icon-spotify           { background-image:  url('/launcher/images/icons/apps/social-music-spotify-2.png');}
+.icon-podcast           { background-image:  url('/launcher/images/icons/apps/social-music-podcast.png');}
+.icon-youtube           { background-image:  url('/launcher/images/icons/apps/social-video-youtube.png');}
+.icon-youtube-clip      { background-image:  url('/launcher/images/icons/apps/social-video-youtube-clip.png');}
+
+
+.icon-radio             { background-image:  url('/launcher/images/icons/apps/microphone-alternate.png');}
+.icon-radio-1           { background-image:  url('/launcher/images/icons/apps/radio-antenna-1.png');}
+
+.icon-weather           { background-image:  url('/launcher/images/icons/apps/weather-cloud.png');}
+
+

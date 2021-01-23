@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+
 
 ::-webkit-scrollbar {
     height: 12px;
@@ -24,11 +26,12 @@ body.audio {
     color       : #ffffff;
     padding     : 0px;
     margin      : 0px;
-
+    
 }
 
 body {
-    background : #000000 url('wallpaper.png') no-repeat top left;
+    font-family     : 'Lexend Deca', sans-serif;
+    background      : #000000 url('/launcher/images/wallpaper.png') no-repeat top left;
     background-size : cover;
 }
 
@@ -173,15 +176,28 @@ body {
     float   : right;
 }
 
-/*#audioskip {
+.launcher-audio #audioskip {
     display : none;
-}*/
+}
 
 .audioplayer::-webkit-media-controls-panel {
     background  : #fff;
 }
 
 
+
+
+
+
+
+body.audio ul.audiostreams {
+    list-style : none;
+}
+
+body.audio ul.audiostreams li,
+body.audio ul.audiostreams a {
+    color : #ffffff !important;
+}
 
 
 
@@ -230,18 +246,36 @@ body.canvas a, body.canvas a:hover {
 }
 
 body.canvas .wrapper ul {
-    list-style : none;
+    list-style      : none;
+       display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
 }
 
 body.canvas .wrapper ul li {
-    display         : inline-block;
-    text-align: center;
+    text-align      : center;
+    max-height      : 10rem;
+    
+ 
+    
+    display: flex;
+    flex-flow: column nowrap;
+    
 }
 
 body.canvas .wrapper ul a {
     display         : block;
+    text-align: center;
+    
+    padding-top     : 4.5rem;
     height          : 6rem;
-    width           : 6rem;
+    width           : 8rem;
+    max-height      : 6rem; 
+    
     margin          : 2rem;
-    border          : 1px solid #fff;
+    padding-bottom  : 0.5rem;
+    color           : #000000;
+    filter          : invert(100%);
+    
+    font-size       : 0.75rem;
 }
